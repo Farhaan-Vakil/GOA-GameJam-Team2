@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class EnemyScript : MonoBehaviour
 
     public void createEnemy()
     {
-        float y = UnityEngine.Random.Range(-5, 5);
+        float y = UnityEngine.Random.Range(-4, 4);
         Vector3 temp = new Vector3(4, y, 0);
         Object.Instantiate(enemy, temp, transform.rotation);
     }

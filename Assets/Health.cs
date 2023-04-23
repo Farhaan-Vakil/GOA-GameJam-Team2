@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
         if (health <=0)
         {
             enemyScript.createEnemy();
+            GameObject.Find("CoinsText").GetComponent<CoinsText>().coins++;
             Destroy(gameObject);
         }
     }

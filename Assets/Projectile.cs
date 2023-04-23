@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         float maxTurnSpeed = 60f; 
         Vector3 resultingDirection = Vector3.RotateTowards(currentDirection, directionToTarget, maxTurnSpeed * Mathf.Deg2Rad * Time.deltaTime, 1f);
         //transform.rotation = Quaternion.LookRotation(resultingDirection);
-        rb.velocity = resultingDirection * 200;
+        rb.velocity = resultingDirection * 500;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

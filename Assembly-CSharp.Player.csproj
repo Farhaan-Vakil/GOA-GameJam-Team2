@@ -60,6 +60,7 @@
     <Compile Include="Assets\EnemyMovementScript.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\HealthTextScript.cs" />
+    <Compile Include="Assets\ShopScript.cs" />
     <Compile Include="Assets\CoinsText.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\LayerTrigger.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />

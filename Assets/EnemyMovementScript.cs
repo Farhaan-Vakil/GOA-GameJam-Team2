@@ -4,30 +4,46 @@ using UnityEngine;
 
 public class EnemyMovementScript : MonoBehaviour
 {
-    public GameObject player;
-    public float speed;
-    public float distanceBetween;
+    [SerializeField]
+    private Transform[] waypoints;
+    private GameObject[] temp;
 
-    public float distance;
+    [SerializeField]
+    private float moveSpeed = 2f;
 
-    void Start()
+    private int temp2 = 0;
+
+    private int waypointIndex = 0;
+
+    private void Start()
     {
-        player = GameObject.Find("Tower");
+       temp  = GameObject.FindGameObjectsWithTag("Waypoint");
+       for(int i = waypoints.Length - 1; i >= 0; i--)
+        {
+            waypoints[temp2] = temp[i].transform;
+            temp2++;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Move();
+    }
 
-        if(distance < distanceBetween)
+    private void Move()
+    {
+        if (waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-        }
 
+            transform.position = Vector2.MoveTowards(transform.position,
+               waypoints[waypointIndex].transform.position,
+               moveSpeed * Time.deltaTime);
+
+            if (transform.position == waypoints[waypointIndex].transform.position)
+            {
+                waypointIndex += 1;
+            }
+        }
     }
 }

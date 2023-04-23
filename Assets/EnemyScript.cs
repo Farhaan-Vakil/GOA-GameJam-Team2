@@ -15,9 +15,7 @@ public class EnemyScript : MonoBehaviour
 
     public void createEnemy()
     {
-        float y = UnityEngine.Random.Range(-4, 4);
-        Vector3 temp = new Vector3(4, y, 0);
-        Object.Instantiate(enemy, temp, transform.rotation);
+        Object.Instantiate(enemy, enemy.transform.position, transform.rotation);
     }
 
     // Update is called once per frame

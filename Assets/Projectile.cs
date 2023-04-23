@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            heal.Damage(5);
+            heal.Damage(1);
             Destroy(gameObject);
         }
     }

@@ -9,6 +9,6 @@ public class HealthTextScript : MonoBehaviour
 
     void Update()
     {
-        HealthText.text = "Health: " + GameObject.Find("Enemy(Clone)").GetComponent<Health>().health;
+        HealthText.text = "Health: " + GameObject.FindWithTag("Enemy").GetComponent<Health>().health;
     }
 }

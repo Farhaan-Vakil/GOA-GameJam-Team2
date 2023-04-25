@@ -13,15 +13,15 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        heal = GameObject.Find("Enemy(Clone)").GetComponent<Health>();
+        heal = GameObject.FindWithTag("Enemy").GetComponent<Health>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        heal = GameObject.Find("Enemy(Clone)").GetComponent<Health>();
-        Vector3 directionToTarget = GameObject.Find("Enemy(Clone)").transform.position - transform.position;
+        heal = GameObject.FindWithTag("Enemy").GetComponent<Health>();
+        Vector3 directionToTarget = GameObject.FindWithTag("Enemy").transform.position - transform.position;
         Vector3 currentDirection = transform.forward;
         float maxTurnSpeed = 60f; 
         Vector3 resultingDirection = Vector3.RotateTowards(currentDirection, directionToTarget, maxTurnSpeed * Mathf.Deg2Rad * Time.deltaTime, 1f);

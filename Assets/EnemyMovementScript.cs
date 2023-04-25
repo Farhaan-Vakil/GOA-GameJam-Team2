@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class EnemyMovementScript : MonoBehaviour
 {
@@ -17,12 +19,12 @@ public class EnemyMovementScript : MonoBehaviour
 
     private void Start()
     {
-       temp  = GameObject.FindGameObjectsWithTag("Waypoint");
-       for(int i = waypoints.Length - 1; i >= 0; i--)
+       /* temp  = GameObject.FindGameObjectsWithTag("Waypoint").OrderBy(g => g.transform.GetSiblingIndex()).ToArray();
+        for (int i = waypoints.Length - 1; i >= 0; i--)
         {
             waypoints[temp2] = temp[i].transform;
             temp2++;
-        }
+        }*/
     }
 
     // Update is called once per frame

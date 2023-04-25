@@ -6,21 +6,24 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyScript : MonoBehaviour
 {
     public GameObject enemy;
+    private Vector3 enemyPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        createEnemy();
+        //createEnemy();
+        enemyPos = enemy.transform.position;
+
     }
 
     public void createEnemy()
     {
-        Object.Instantiate(enemy, enemy.transform.position, transform.rotation);
+        Object.Instantiate(enemy, enemyPos, transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        enemy = GameObject.FindWithTag("Enemy");
     }
 }

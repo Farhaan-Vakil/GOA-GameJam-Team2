@@ -34,7 +34,9 @@ public class PlayerController : MonoBehaviour
             canFire = false;
         }
 
-
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(mousePos.x + ", " + mousePos.y);
+            
 
     }
 }

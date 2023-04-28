@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int damage = 10;
-    public Vector2 movementSpeed = new Vector2(3f, 0);
+    public Vector2 movementSpeed = new Vector2(10f, 0);
     public Health heal;
     Rigidbody2D rb;
 
@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     {
         heal = GameObject.FindWithTag("Enemy").GetComponent<Health>();
         rb = GetComponent<Rigidbody2D>();
+        movementSpeed = new Vector2(50f, 0);
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Projectile : MonoBehaviour
         heal = GameObject.FindWithTag("Enemy").GetComponent<Health>();
         Vector3 directionToTarget = GameObject.FindWithTag("Enemy").transform.position - transform.position;
         Vector3 currentDirection = transform.forward;
-        float maxTurnSpeed = 60f; 
+        float maxTurnSpeed = 200f; 
         Vector3 resultingDirection = Vector3.RotateTowards(currentDirection, directionToTarget, maxTurnSpeed * Mathf.Deg2Rad * Time.deltaTime, 1f);
         //transform.rotation = Quaternion.LookRotation(resultingDirection);
         rb.velocity = resultingDirection * 500;

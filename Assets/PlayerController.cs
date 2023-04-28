@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject projectile;
+    public Camera cam; 
+
+    Vector3 position;
 
     private bool canFire = true;
 
@@ -27,16 +30,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && canFire == true)
+        if (Input.GetKey(KeyCode.Mouse0) && canFire == true && mouseOnButton())
         {
             Invoke("fire", 1f);
             createProjectile();
             canFire = false;
         }
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(mousePos.x + ", " + mousePos.y);
+        Debug.Log(position);
+        
             
 
+    }
+
+
+    bool mouseOnButton()
+    {
+        position = cam.ScreenToWorldPoint(Input.mousePosition);
+        return position.x < -9.25 && position.x > -11.25 && position.y < -4 && position.y > -6;
     }
 }

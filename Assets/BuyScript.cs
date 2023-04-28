@@ -36,6 +36,7 @@ public class BuyScript : MonoBehaviour
             GameObject.Find("CoinsText").GetComponent<CoinsText>().coins = GameObject.Find("CoinsText").GetComponent<CoinsText>().coins - coins;
             button.interactable = false;
             isBought = true;
+            activateObject.SetActive(true);
         }
     }
 }

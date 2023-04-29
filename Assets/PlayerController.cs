@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canFire = true;
 
+    public int damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +38,15 @@ public class PlayerController : MonoBehaviour
             createProjectile();
             canFire = false;
         }
-
-        Debug.Log(position);
         
             
 
     }
 
+    public void increaseDamage()
+    {
+        damage++;
+    }
 
     bool mouseOnButton()
     {
